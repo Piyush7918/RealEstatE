@@ -1,4 +1,4 @@
-const PdetailsformModel = require("../../models/pdetailsform")
+const PdetailsformModel = require("../../models/Pdetailsform")
 
 class PdetailsformController {
 
