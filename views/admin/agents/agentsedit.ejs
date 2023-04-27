@@ -1,0 +1,37 @@
+<%- include('../sidebar.ejs')%>
+    <%-include('../header.ejs')%>
+
+
+        <div class="content mt-3">
+
+            <form method="post" action="/agentsupdate/<%= agedit._id %>" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label for="">Agent Name</label>
+                    <input type="text" name="agentname" class="form-control" value="<%= agedit.agentname %>">
+                </div>
+                <div class="mb-3">
+                    <label for=""> Subtitle </label>
+                    <input type="text" name="aboutagent" class="form-control" value="<%= agedit.aboutagent %>">
+                </div>
+                <div class="mb-3">
+                    <label for=""> Agent Phone </label>
+                    <input type="text" name="agentphone" class="form-control" value="<%= agedit.agentphone %>">
+                </div><div class="mb-3">
+                    <label for="">Agent Email </label>
+                    <input type="text" name="agentemail" class="form-control" value="<%= agedit.agentemail %>">
+                </div>
+                <div class="mb-3">
+                    <label for="">Agent Image</label>
+                    <input type="file" name="agentimage" class="form-control"><br>
+                    <img src="<%= agedit.agentimage.url %>" alt="agimg" style="width: 210px">
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+
+
+        <%- include('../footer.ejs') %>

@@ -1,0 +1,49 @@
+<%- include('../sidebar.ejs')%>
+    <%-include('../header.ejs')%>
+
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between">
+                                <div>
+                                    <strong class="card-title">Data Table</strong>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>S.No.</th>
+                                            <th>Service Title</th>
+                                            <th>Service Description</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <%= serview._id %>
+                                            </td>
+                                            <td>
+                                                <%= serview.sertitle %>
+                                            </td>
+                                            <td>
+                                                <%= serview.serdescription %>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .animated -->
+
+
+        </div><!-- .content -->
+        </div><!-- /#right-panel -->
+
+        <%-include('../footer.ejs')%>

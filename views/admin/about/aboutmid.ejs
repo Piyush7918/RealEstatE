@@ -1,0 +1,121 @@
+<%- include('../sidebar.ejs')%>
+    <%-include('../header.ejs')%>
+
+
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between">
+                                <div>
+                                    <strong class="card-title">Data Table</strong>
+                                </div>
+                                <div>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">Add About</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>S.No.</th>
+                                            <th>Vertical Title</th>
+                                            <th>Title</th>
+                                            <th>About Description</th>
+                                            <th>Image</th>
+                                            <th>Action</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% am.forEach((amid)=>{ %> 
+                                            <!-- uses for show inserted data at front end known as forEach Loop in express-->
+                                        <tr>
+                                            <td>
+                                                <%= amid._id %>
+                                            </td>
+                                            <td>
+                                                <%= amid.verticaltitle %>
+                                            </td>
+                                            <td>
+                                                <%= amid.amtitle %>
+                                            </td>
+                                            <td>
+                                                <%= amid.amdescription.slice(0,30) %>
+                                            </td>
+
+                                            <td><img src="<%= amid.amimage.url %>" width="200px"></td>
+                                            <td>
+                                                <a href="/amview/<%= amid._id %>"
+                                                    class="btn btn-info">View</a>
+                                                <a href="/amedit/<%= amid._id %>"
+                                                    class="btn btn-info">Edit</a>
+                                                <a href="/amdelete/<%= amid._id %>"
+                                                    class="btn btn-info">Delete</a>
+                                            </td>
+
+                                        </tr>
+                                        <% }) %>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .animated -->
+
+
+        </div><!-- .content -->
+        </div><!-- /#right-panel -->
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Enter About Details</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="/insertaboutmid" enctype="multipart/form-data">
+
+                            <div class="mb-3">
+                                <label for="">Vertical Title</label>
+                                <input type="text" name="verticaltitle" class="form-control">
+                            </div>
+
+                            
+                            <div class="mb-3">
+                                <label for=""> title </label>
+                                <input type="text" name="amtitle" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="">About Description</label>
+                                <input type="text" name="amdescription" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="">Mid Image</label>
+                                <input type="file" name="amimage" class="form-control">
+                            </div>
+
+                            <div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <%- include('../footer.ejs') %>

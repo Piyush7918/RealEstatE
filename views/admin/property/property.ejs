@@ -1,0 +1,178 @@
+<%- include('../sidebar.ejs')%>
+    <%-include('../header.ejs')%>
+
+
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between">
+                                <div>
+                                    <strong class="card-title">Data Table</strong>
+                                </div>
+                                <div>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">Add Properties</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>S.No.</th>
+                                            <th>Location</th>
+                                            <th>Area</th>
+                                            <th>Beds</th>
+                                            <th>Baths</th>
+                                            <th>Garages</th>
+                                            <th>Price</th>
+                                            <th>Description</th>
+                                            <th>Amenities</th>
+                                            <th>PImage</th>
+                                            <th>Fimage</th>
+                                            <th>Action</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% p.forEach((prop)=>{ %> 
+                                            <!-- uses for show inserted data at front end known as forEach Loop in express-->
+                                        <tr>
+                                            <td>
+                                                <%= prop._id %>
+                                            </td>
+                                            <td>
+                                                <%= prop.plocation %>
+                                            </td>
+                                            <td>
+                                                <%= prop.pareas %>
+                                            </td>
+                                            <td>
+                                                <%= prop.pbeds %>
+                                            </td>
+                                            <td>
+                                                <%= prop.pbaths %>
+                                            </td>
+                                            <td>
+                                                <%= prop.pgarages %>
+                                            </td>
+                                            <td>
+                                                <%= prop.pprice %>
+                                            </td>
+                                            <td>
+                                                <%= prop.pdescription.slice(0,10) %>
+                                            </td>
+                                            <td>
+                                                <%= prop.amenities %>
+                                            </td>
+
+                                            <td>
+                                                <img src="<%= prop.fimage.url %>" width="40px">
+                                            </td>
+                                            <td>
+                                                <% prop.pimage.forEach((imageshow)=>{ %>
+                                                <img src="<%= imageshow.url %>" width="40px">
+                                                <% }) %>
+                                            </td>
+                                            
+                                            <td>
+                                                <a href="/propertyview/<%= prop._id %>"
+                                                    class="btn btn-info">View</a>
+                                                <a href="/propertyedit/<%= prop._id %>"
+                                                    class="btn btn-info mt-2">Edit</a>
+                                                <a href="/propertydelete/<%= prop._id %>"
+                                                    class="btn btn-info mt-2">Delete</a>
+                                            </td>
+
+                                        </tr>
+                                        <% }) %>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .animated -->
+
+
+        </div><!-- .content -->
+        </div><!-- /#right-panel -->
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Enter Properties</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="/insertproperty" enctype="multipart/form-data">
+
+                            <div class="mb-3">
+                                <label for="">Home location</label>
+                                <input type="text" name="plocation" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="">Home Price</label>
+                                <input type="text" name="pprice" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="">Areas</label>
+                                <input type="text" name="pareas" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="">Beds</label>
+                                <input type="text" name="pbeds" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="">Baths</label>
+                                <input type="text" name="pbaths" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="">Garages</label>
+                                <input type="text" name="pgarages" class="form-control">
+                            </div>
+
+                            <div class="md-3">
+                                <label for="">Description</label>
+                                <textarea type="text" name="pdescription" class="form-control"></textarea>
+                            </div>
+
+                            <div class="md-3">
+                                <label for="">Amenities</label>
+                                <textarea type="text" name="amenities" class="form-control"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="">Front Image</label>
+                                <input type="file" name="fimage" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="">Property Images</label>
+                                <input type="file" name="pimage" multiple class="form-control">
+                            </div>
+
+                            <div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include('../footer.ejs') %>

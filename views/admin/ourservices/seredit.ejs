@@ -1,0 +1,25 @@
+<%- include('../sidebar.ejs')%>
+    <%-include('../header.ejs')%>
+
+
+        <div class="content mt-3">
+
+            <form method="post" action="/serupdate/<%= seredit._id %>" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label for="">Service Title</label>
+                    <input type="text" name="sertitle" class="form-control" value="<%= seredit.sertitle %>">
+                </div>
+                <div class="mb-3">
+                    <label for="">Service Description</label>
+                    <input type="text" name="serdescription" class="form-control" value="<%= seredit.serdescription %>">
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+
+
+        <%- include('../footer.ejs') %>

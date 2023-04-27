@@ -1,0 +1,69 @@
+<%- include('../sidebar.ejs')%>
+    <%-include('../header.ejs')%>
+
+
+        <div class="content mt-3">
+            <form method="post" action="/propertyupdate/<%= pedit._id %>" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label for="">Home location</label>
+                    <input type="text" name="plocation" class="form-control" value="<%= pedit.plocation %>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="">Home Price</label>
+                    <input type="text" name="pprice" class="form-control" value="<%= pedit.pprice %>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="">Areas</label>
+                    <input type="text" name="pareas" class="form-control" value="<%= pedit.pareas %>"> 
+                </div>
+
+                <div class="mb-3">
+                    <label for="">Beds</label>
+                    <input type="text" name="pbeds" class="form-control" value="<%= pedit.pbeds %>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="">Baths</label>
+                    <input type="text" name="pbaths" class="form-control" value="<%= pedit.pbaths %>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="">Garages</label>
+                    <input type="text" name="pgarages" class="form-control" value="<%= pedit.pgarages %>">
+                </div>
+
+                <div class="md-3">
+                    <label for="">Description</label>
+                    <textarea type="text" name="pdescription" class="form-control"><%= pedit.pdescription %></textarea>
+                </div>
+
+                <div class="md-3">
+                    <label for="">Amenities</label>
+                    <textarea type="text" name="amenities" class="form-control"><%= pedit.amenities %></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="">Front Image</label>
+                    <input type="file" name="fimage" class="form-control">
+                    <img src="<%= pedit.fimage.url %>" alt="img" style="width: 210px">
+                </div>
+
+                <div class="mb-3">
+                    <label for="">Property Image</label>
+                    <input type="file" name="pimage" multiple class="form-control">
+                    <% pedit.pimage.forEach((imageshow)=>{ %>
+                        <img src="<%= imageshow.url %>" width="210px">
+                        <% }) %>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+
+
+        <%- include('../footer.ejs') %>

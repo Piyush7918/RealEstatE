@@ -1,0 +1,29 @@
+<%- include('../sidebar.ejs')%>
+    <%-include('../header.ejs')%>
+
+
+        <div class="content mt-3">
+
+            <form method="post" action="/inserttestimonials/<%= tedit._id %>" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label for="">Client Name</label>
+                    <input type="text" name="clientname" class="form-control" value="<%= tedit.clientname %>">
+                </div>
+                <div class="mb-3">
+                    <label for="">Client Feedback  </label>
+                    <input type="text" name="clientfeedback" class="form-control" value="<%= tedit.clientfeedback %>">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="">Client Image</label>
+                    <input type="file" name="clientimage" class="form-control">
+                    <img src="<%= tedit.clientimage.url %>" alt="img" style="width: 210px">
+                <div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+
+
+        <%- include('../footer.ejs') %>

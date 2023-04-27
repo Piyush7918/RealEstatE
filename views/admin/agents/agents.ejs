@@ -1,0 +1,124 @@
+<%- include('../sidebar.ejs')%>
+    <%-include('../header.ejs')%>
+
+
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between">
+                                <div>
+                                    <strong class="card-title">Data Table</strong>
+                                </div>
+                                <div>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">Add Agents</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>S.No.</th>
+                                            <th>Agent Name</th>
+                                            <th>About agent</th>
+                                            <th>Phone</th>
+                                            <th>Email</th>
+                                            <th>Image</th>
+                                            <th>Action</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% ag.forEach((agent)=>{ %> 
+                                            <!-- uses for show inserted data at front end known as forEach Loop in express-->
+                                        <tr>
+                                            <td>
+                                                <%= agent._id %>
+                                            </td>
+                                            <td>
+                                                <%= agent.agentname %>
+                                            </td>
+                                            <td>
+                                                <%= agent.aboutagent %>
+                                            </td>
+                                            <td>
+                                                <%= agent.agentphone %>
+                                            </td>
+                                            <td>
+                                                <%= agent.agentemail %>
+                                            </td>
+
+                                            <td><img src="<%= agent.agentimage.url %>" width="200px"></td>
+                                            <td>
+                                                <a href="/agentsview/<%= agent._id %>"
+                                                    class="btn btn-info">View</a>
+                                                <a href="/agentsedit/<%= agent._id %>"
+                                                    class="btn btn-info mt-2">Edit</a>
+                                                <a href="/agentsdelete/<%= agent._id %>"
+                                                    class="btn btn-info">Delete</a>
+                                            </td>
+
+                                        </tr>
+                                        <% }) %>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .animated -->
+
+
+        </div><!-- .content -->
+        </div><!-- /#right-panel -->
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Enter Agents Details</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="/insertagents" enctype="multipart/form-data">
+
+                            <div class="mb-3">
+                                <label for="">Agent Name</label>
+                                <input type="text" name="agentname" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for=""> About Agents </label>
+                                <input type="text" name="aboutagent" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for=""> Agent Phone </label>
+                                <input type="text" name="agentphone" class="form-control">
+                            </div><div class="mb-3">
+                                <label for="">Agent Email </label>
+                                <input type="text" name="agentemail" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Agent Image</label>
+                                <input type="file" name="agentimage" class="form-control">
+                            </div>
+
+                            <div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <%- include('../footer.ejs') %>

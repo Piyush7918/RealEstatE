@@ -1,0 +1,30 @@
+<%- include('../sidebar.ejs')%>
+    <%-include('../header.ejs')%>
+
+
+        <div class="content mt-3">
+            <form method="post" action="/atupdate/<%= atedit._id %>" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label for="">Company Name</label>
+                    <input type="text" name="companyname" class="form-control" value="<%= atedit.companyname %>">
+                </div>
+                <div class="mb-3">
+                    <label for=""> Subtitle </label>
+                    <input type="text" name="subtitle" class="form-control" value="<%= atedit.subtitle %>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="">Top Image</label>
+                    <input type="file" name="atimage" class="form-control">
+                    <img src="<%= atedit.atimage.url %>" alt="amimg" style="width: 210px">
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+
+
+        <%- include('../footer.ejs') %>
