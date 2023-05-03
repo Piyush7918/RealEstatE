@@ -15,7 +15,7 @@ class FrontController {
          // console.log('hello')
          const data = await SliderModel.find()
          const prop = await PropertyModel.find()
-         const agents = await AgentsModel.find().sort({ _id: -1 }).limit(6)
+         const agents = await AgentsModel.find().sort({ _id: -1 }).limit(3)
          const test = await TestimonialsModel.find()
          const service = await ServiceModel.find()
          res.render('front/home', { s: data, p: prop, ag: agents, t: test, se: service })
