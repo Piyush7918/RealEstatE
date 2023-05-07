@@ -33,25 +33,25 @@ router.post('/search',FrontController.search)
 router.get('/admin/dashboard',auth,AdminController.dashboard)
 router.post('/adminregister',AdminController.adminregister)
 router.post('/verify_login',AdminController.verifylogin)
-router.get('/logout',AdminController.logout)
+router.get('/logout',auth,AdminController.logout)
 
 
 // ========Home Page ==========
 // Slider Controller
 router.get('/admin/home/slider',auth,SliderController.slider)
-router.post('/insertslider',SliderController.insertslider)
-router.get('/sliderview/:id', SliderController.sliderview)
-router.get('/slideredit/:id', SliderController.slideredit)
-router.post('/sliderupdate/:id',SliderController.sliderupdate)
-router.get('/sliderdelete/:id', SliderController.sliderdelete)
+router.post('/insertslider',auth,SliderController.insertslider)
+router.get('/sliderview/:id', auth,SliderController.sliderview)
+router.get('/slideredit/:id', auth,SliderController.slideredit)
+router.post('/sliderupdate/:id',auth,SliderController.sliderupdate)
+router.get('/sliderdelete/:id', auth,SliderController.sliderdelete)
 
 // Service Controller
 router.get('/admin/ourservices/services',auth,ServiceController.service)
-router.post('/insertservice',ServiceController.insertservice)
-router.get('/serview/:id', ServiceController.serview)
-router.get('/seredit/:id', ServiceController.seredit)
-router.post('/serupdate/:id',ServiceController.serupdate)
-router.get('/serdelete/:id', ServiceController.serdelete)
+router.post('/insertservice',auth,ServiceController.insertservice)
+router.get('/serview/:id', auth,ServiceController.serview)
+router.get('/seredit/:id', auth,ServiceController.seredit)
+router.post('/serupdate/:id',auth,ServiceController.serupdate)
+router.get('/serdelete/:id', auth,ServiceController.serdelete)
 
 
 
@@ -60,36 +60,36 @@ router.get('/serdelete/:id', ServiceController.serdelete)
 
 // ===========Property Pages =================
 router.get('/admin/property/property',auth,PropertyController.property)
-router.post('/insertproperty',PropertyController.insertproperty)
-router.get('/propertyview/:id', PropertyController.propertyview)
-router.get('/propertyedit/:id', PropertyController.propertyedit)
-router.post('/propertyupdate/:id',PropertyController.propertyupdate)
-router.get('/propertydelete/:id', PropertyController.propertydelete)
+router.post('/insertproperty',auth,PropertyController.insertproperty)
+router.get('/propertyview/:id', auth,PropertyController.propertyview)
+router.get('/propertyedit/:id', auth,PropertyController.propertyedit)
+router.post('/propertyupdate/:id',auth,PropertyController.propertyupdate)
+router.get('/propertydelete/:id', auth,PropertyController.propertydelete)
 
 // ================Property Form =============================
 
 router.get('/admin/property/pdetailsform',auth,PdetailsformController.Pdetailsform)
 router.post('/Pdetails_insert',PdetailsformController.Pdetails_insert)
-router.get('/Pdetailsformdelete/:id',PdetailsformController.Pdetailsformdelete)
+router.get('/Pdetailsformdelete/:id',auth,PdetailsformController.Pdetailsformdelete)
 
 // ===========About Pages =================
 
 // ---------About Banner---------------
 router.get('/admin/about/abouttop',auth,AbouttopController.abouttop)
-router.post('/insertabouttop',AbouttopController.insertabouttop)
-router.get('/atview/:id', AbouttopController.atview)
-router.get('/atedit/:id', AbouttopController.atedit)
-router.post('/atupdate/:id',AbouttopController.atupdate)
-router.get('/atdelete/:id', AbouttopController.atdelete)
+router.post('/insertabouttop',auth,AbouttopController.insertabouttop)
+router.get('/atview/:id', auth,AbouttopController.atview)
+router.get('/atedit/:id', auth,AbouttopController.atedit)
+router.post('/atupdate/:id',auth,AbouttopController.atupdate)
+router.get('/atdelete/:id', auth,AbouttopController.atdelete)
 
 
 // ---------About mid---------------
 router.get('/admin/about/aboutmid',auth,AboutmidController.aboutmid)
-router.post('/insertaboutmid',AboutmidController.insertaboutmid)
-router.get('/amview/:id', AboutmidController.amview)
-router.get('/amedit/:id', AboutmidController.amedit)
-router.post('/amupdate/:id',AboutmidController.amupdate)
-router.get('/amdelete/:id', AboutmidController.amdelete)
+router.post('/insertaboutmid',auth,AboutmidController.insertaboutmid)
+router.get('/amview/:id', auth,AboutmidController.amview)
+router.get('/amedit/:id', auth,AboutmidController.amedit)
+router.post('/amupdate/:id',auth,AboutmidController.amupdate)
+router.get('/amdelete/:id', auth,AboutmidController.amdelete)
 
 // ===========About Pages ends =================
 
@@ -97,11 +97,11 @@ router.get('/amdelete/:id', AboutmidController.amdelete)
 // ===========Agents Page =================
 
 router.get('/admin/agents/agents',auth,AgentsController.agents)
-router.post('/insertagents',AgentsController.insertagents)
-router.get('/agentsview/:id', AgentsController.agentsview)
-router.get('/agentsedit/:id', AgentsController.agentsedit)
-router.post('/agentsupdate/:id',AgentsController.agentsupdate)
-router.get('/agentsdelete/:id', AgentsController.agentsdelete)
+router.post('/insertagents',auth,AgentsController.insertagents)
+router.get('/agentsview/:id', auth,AgentsController.agentsview)
+router.get('/agentsedit/:id', auth,AgentsController.agentsedit)
+router.post('/agentsupdate/:id',auth,AgentsController.agentsupdate)
+router.get('/agentsdelete/:id', auth,AgentsController.agentsdelete)
 
 // ===========Agents Page  ends=================
 
@@ -110,27 +110,27 @@ router.get('/agentsdelete/:id', AgentsController.agentsdelete)
 // ===========Contact Page =================
 
 router.get('/admin/contact/contact',auth,ContactController.contact)
-router.post('/insertcontact',ContactController.insertcontact)
-router.get('/contactview/:id', ContactController.contactview)
-router.get('/contactedit/:id', ContactController.contactedit)
-router.post('/contactupdate/:id',ContactController.contactupdate)
-router.get('/contactdelete/:id', ContactController.contactdelete)
+router.post('/insertcontact',auth,ContactController.insertcontact)
+router.get('/contactview/:id', auth,ContactController.contactview)
+router.get('/contactedit/:id', auth,ContactController.contactedit)
+router.post('/contactupdate/:id',auth,ContactController.contactupdate)
+router.get('/contactdelete/:id', auth,ContactController.contactdelete)
 
 
 // ===========Contact form Page =================
 
 router.get('/admin/contact/contactform',auth,ContactformController.contactform)
 router.post('/contact_insert',ContactformController.contact_insert)
-router.get('/contactformdelete/:id',ContactformController.contactformdelete)
+router.get('/contactformdelete/:id',auth,ContactformController.contactformdelete)
 
 // =========== Testimonials Page =================
 
 router.get('/admin/testimonials/testimonials',auth,TestimonialsController.testimonials)
-router.post('/inserttestimonials',TestimonialsController.inserttestimonials)
-router.get('/testview/:id', TestimonialsController.testview)
-router.get('/testedit/:id', TestimonialsController.testedit)
-router.post('/testupdate/:id',TestimonialsController.testupdate)
-router.get('/testdelete/:id', TestimonialsController.testdelete)
+router.post('/inserttestimonials',auth,TestimonialsController.inserttestimonials)
+router.get('/testview/:id', auth,TestimonialsController.testview)
+router.get('/testedit/:id', auth,TestimonialsController.testedit)
+router.post('/testupdate/:id',auth,TestimonialsController.testupdate)
+router.get('/testdelete/:id', auth,TestimonialsController.testdelete)
 
 
 
