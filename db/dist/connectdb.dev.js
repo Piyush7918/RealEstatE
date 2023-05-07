@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 
 var url = "mongodb://127.0.0.1:27017/RealEstatE";
-var live_Url = "mongodb+srv://chauhanpiyush560:piyush123@cluster0.6rkz1ig.mongodb.net/Estatehub?retryWrites=true&w=majority";
+var live_Url = "mongodb+srv://19singhpiyush99:Piyush1999@cluster0.adanoei.mongodb.net/Real_Estate?retryWrites=true&w=majority";
 
 var connectDB = function connectDB() {
   return mongoose.connect(live_Url).then(function () {
