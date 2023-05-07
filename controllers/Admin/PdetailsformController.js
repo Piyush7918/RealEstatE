@@ -26,7 +26,7 @@ class PdetailsformController {
             })
             await result.save()
            
-            res.redirect('/property_single')
+            res.redirect('/properties')
 
         }catch(error){
             console.log(error)

@@ -1,7 +1,6 @@
 <%- include('./header.ejs') %>
 
 
-
   <!-- ======= Intro Section ======= -->
   <div class="intro intro-carousel swiper position-relative">
 
@@ -96,7 +95,7 @@
                   <h2 class="title-c"><%= os.sertitle %></h2>
                 </div>
               </div>
-              <div class="card-body-c">
+              <div class="card-body-c" style="text-align: justify;">
                 <p class="content-c">
                   <%= os.serdescription %>
                 </p>
@@ -138,14 +137,14 @@
                   <div class="card-overlay-a-content">
                     <div class="card-header-a">
                       <h2 class="card-title-a">
-                        <a href="property-single.html"><%= prop.plocation %></a>
+                        <a href="/property_single/<%= prop._id %>"><%= prop.plocation %></a>
                       </h2>
                     </div>
                     <div class="card-body-a">
                       <div class="price-box d-flex">
                         <span class="price-a">rent | <%= prop.pprice %></span>
                       </div>
-                      <a href="/property_single" class="link-a">Click here to view
+                      <a href="/property_single/<%= prop._id %>" class="link-a">Click here to view
                         <span class="bi bi-chevron-right"></span>
                       </a>
                     </div>
